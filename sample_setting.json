@@ -1,0 +1,25 @@
+{
+  "version": "1",
+  "appSetting": {
+    "host": "circleci.com",
+    "circleToken": ""
+  },
+  "projectList": [
+    {
+      "name": "circleci-emitter",
+      "description": "CircleCI Emitter",
+      "projectSlug": "github/cbdyzj/circleci-emitter",
+      "branch": "main",
+      "parameters": {},
+      "recentTriggered": []
+    },
+    {
+      "name": "sanguo",
+      "description": "Sanguo",
+      "projectSlug": "github/cbdyzj/sanguo",
+      "branch": "main",
+      "parameters": {},
+      "recentTriggered": []
+    }
+  ]
+}

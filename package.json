@@ -1,0 +1,14 @@
+{
+  "name": "circleci-emitter",
+  "version": "1.0.0",
+  "description": "CircleCI Emitter",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/css": "^11.11.2",
+    "vue": "^3.3.4"
+  }
+}
