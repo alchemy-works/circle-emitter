@@ -5,7 +5,7 @@
 ### Build
 
 ```sh
-./gradlew clean clean build
+./gradlew clean build
 ```
 
 ### Start
@@ -24,4 +24,5 @@ java -jar circleci-emitter.jar
 ---
 
 - Java 17 required
-- [sample_setting.json](sample_setting.json)
+- Sample setting JSON: [sample_setting.json](sample_setting.json)
+- Download pre-compiled jar: [Releases](https://github.com/cbdyzj/circleci-emitter/releases)
