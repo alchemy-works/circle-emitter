@@ -14,16 +14,25 @@ export function readAsText(blob) {
     })
 }
 
-export function openFileAndReadContent(callback = () => undefined) {
+export function openFileAndReadAsText(callback = (err, text) => undefined) {
+    const id = 'open_file_and_read_content'
+    document.getElementById(id)?.remove()
     const inputRef = document.createElement('input')
     inputRef.type = 'file'
+    inputRef.id = id
+    inputRef.style.display = 'none'
     inputRef.addEventListener('change', async (ev) => {
-        const file = ev.target.files[0]
-        if (!file) {
-            return
+        try {
+            const file = ev.target.files[0]
+            if (file) {
+                const text = await readAsText(file)
+                callback(null, text)
+            }
+        } catch (err) {
+            callback(err)
+        } finally {
+            inputRef.remove()
         }
-        callback(await readAsText(file))
-        inputRef.remove()
     })
     document.body.appendChild(inputRef)
     inputRef.click()

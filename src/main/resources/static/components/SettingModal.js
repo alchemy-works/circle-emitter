@@ -1,5 +1,5 @@
 import { createApp, css, Dialog, LightTip } from '../modules.js'
-import { openFileAndReadContent } from '../common/file.js'
+import { openFileAndReadAsText } from '../common/file.js'
 
 const ClassName = css`
   min-width: 540px;
@@ -36,8 +36,13 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
                 value: 'Import setting',
                 className: 'button-import-setting',
                 events: async (ev) => {
-                    openFileAndReadContent((content) => {
-                        importSetting(content)
+                    openFileAndReadAsText((err, text) => {
+                        if (err) {
+                            console.error(err)
+                            LightTip.error(err.message)
+                            return
+                        }
+                        importSetting(text)
                         dialog.remove()
                     })
                 }
