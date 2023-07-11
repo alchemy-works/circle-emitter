@@ -15,7 +15,7 @@ export function readAsText(blob) {
 }
 
 export function openFileAndReadAsText(callback = (err, text) => undefined) {
-    const id = 'open_file_and_read_content'
+    const id = 'open_file_and_read_as_text'
     document.getElementById(id)?.remove()
     const inputRef = document.createElement('input')
     inputRef.type = 'file'
