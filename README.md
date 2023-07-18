@@ -11,7 +11,7 @@
 ### Start
 
 ```sh
-./scripts/start.sh
+./scripts/start_emitter.sh
 ```
 
 ### Run pre-compiled jar
