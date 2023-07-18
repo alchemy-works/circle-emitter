@@ -8,7 +8,7 @@
     {
       "name": "circleci-emitter",
       "description": "CircleCI Emitter",
-      "projectSlug": "github/cbdyzj/circleci-emitter",
+      "projectSlug": "github/alchemy-works/circleci-emitter",
       "branch": "main",
       "parameters": {},
       "recentTriggered": []

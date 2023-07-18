@@ -1,6 +1,6 @@
 # CircleCI Emitter
 
-[![CircleCI](https://circleci.com/gh/cbdyzj/circleci-emitter.svg?style=svg)](https://circleci.com/gh/cbdyzj/circleci-emitter)
+[![CircleCI](https://circleci.com/gh/alchemy-works/circleci-emitter.svg?style=svg)](https://circleci.com/gh/alchemy-works/circleci-emitter)
 
 ### Build
 
@@ -25,4 +25,4 @@ java -jar circleci-emitter.jar
 
 - Java 17 required
 - Sample setting JSON: [sample_setting.json](sample_setting.json)
-- Download pre-compiled jar: [Releases](https://github.com/cbdyzj/circleci-emitter/releases)
+- Download pre-compiled jar: [Releases](https://github.com/alchemy-works/circleci-emitter/releases)

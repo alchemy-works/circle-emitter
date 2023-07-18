@@ -19,7 +19,7 @@ export default {
       <div :class="ClassName">
       <h2>✅&nbsp;CircleCI Emitter</h2>
       <div>
-        <a href="https://github.com/cbdyzj/circleci-emitter" target="_blank">GitHub</a>
+        <a href="https://github.com/alchemy-works/circleci-emitter" target="_blank">Docs</a>
         &nbsp;
         <Button :on-click="onClickSetting" type="normal">Setting</Button>
       </div>
