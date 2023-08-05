@@ -14,11 +14,18 @@
 ./scripts/start_emitter.sh
 ```
 
+### Start with Docker
+
+```sh
+./scripts/deploy_emitter.sh
+# App will start at localhost:8001
+```
+
 ### Run pre-compiled jar
 
 ```sh
 java -jar circleci-emitter.jar
-# App will start at localhost:8080
+# App will start at localhost:8001
 ```
 
 ---

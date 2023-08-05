@@ -5,7 +5,7 @@ cd ..
 
 docker run -d \
   -v "$(pwd):/app" \
-  -p 8001:8080 \
+  -p 8001:8001 \
   --name circleci-emitter \
   openjdk:20 \
   "/app/scripts/start_emitter.sh"
