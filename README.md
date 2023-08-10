@@ -1,4 +1,4 @@
-# CircleCI Emitter
+# Circle Emitter
 
 [![CircleCI](https://circleci.com/gh/alchemy-works/circleci-emitter.svg?style=svg)](https://circleci.com/gh/alchemy-works/circleci-emitter)
 
@@ -24,7 +24,7 @@
 ### Run pre-compiled jar
 
 ```sh
-java -jar circleci-emitter.jar
+java -jar circle-emitter.jar
 # App will start at localhost:8001
 ```
 
@@ -32,4 +32,4 @@ java -jar circleci-emitter.jar
 
 - Java 17 required
 - Sample setting JSON: [sample_setting.json](sample_setting.json)
-- Download pre-compiled jar: [Releases](https://github.com/alchemy-works/circleci-emitter/releases)
+- Download pre-compiled jar: [Releases](https://github.com/alchemy-works/circle-emitter/releases)

@@ -20,9 +20,9 @@ public abstract class Json {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static Map<String, Object> fromJsonString(String jsonString) {
         try {
-            //noinspection unchecked
             return (Map<String, Object>) objectMapper.readValue(jsonString, Map.class);
         } catch (JsonProcessingException ex) {
             UnsafeUtils.getUnsafe().throwException(ex);

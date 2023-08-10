@@ -1,1 +1,1 @@
-rootProject.name = "circleci-emitter"
+rootProject.name = "circle-emitter"

@@ -2,7 +2,7 @@ import Project from './Project.js'
 import AppSetting from './AppSetting.js'
 
 const version = '1'
-const CIRCLE_SETTING_KEY = 'CircleCI_Emitter_Setting'
+const CIRCLE_SETTING_KEY = 'Circle_Emitter_Setting'
 
 function initProjectList(setting) {
     return setting?.projectList.map((it) => new Project(it)) ?? []

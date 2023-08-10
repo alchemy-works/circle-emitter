@@ -7,4 +7,4 @@ if [ -f .env ]; then
     . .env
 fi
 
-exec java $JAVA_OPTS -jar build/libs/circleci-emitter.jar "$@"
+exec java -Xms20m -Xmx20m -jar build/libs/circle-emitter.jar "$@"

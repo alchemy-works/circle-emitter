@@ -17,9 +17,9 @@ const ClassName = css`
 export default {
     template: `
       <div :class="ClassName">
-      <h2>✅&nbsp;CircleCI Emitter</h2>
+      <h2>✅&nbsp;Circle Emitter</h2>
       <div>
-        <a href="https://github.com/alchemy-works/circleci-emitter" target="_blank">Docs</a>
+        <a href="https://github.com/alchemy-works/circle-emitter" target="_blank">Docs</a>
         &nbsp;
         <Button :on-click="onClickSetting" type="normal">Setting</Button>
       </div>

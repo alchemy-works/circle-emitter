@@ -1,7 +1,7 @@
 {
-  "name": "circleci-emitter",
+  "name": "circle-emitter",
   "version": "1.0.0",
-  "description": "CircleCI Emitter",
+  "description": "Circle Emitter",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
