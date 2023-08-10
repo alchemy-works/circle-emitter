@@ -1,6 +1,8 @@
 # Circle Emitter
 
-[![CircleCI](https://circleci.com/gh/alchemy-works/circleci-emitter.svg?style=svg)](https://circleci.com/gh/alchemy-works/circleci-emitter)
+[![CircleCI](https://circleci.com/gh/alchemy-works/circle-emitter.svg?style=svg)](https://circleci.com/gh/alchemy-works/circle-emitter)
+
+Easily trigger your workflows!
 
 ### Build
 
