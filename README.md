@@ -33,5 +33,5 @@ java -jar circle-emitter.jar
 ---
 
 - Java 17 required
-- Sample setting JSON: [sample_setting.json](sample_setting.json)
+- Sample setting JSON: [sample_setting.json](src/main/resources/static/samples/sample_setting.json)
 - Download pre-compiled jar: [Releases](https://github.com/alchemy-works/circle-emitter/releases)

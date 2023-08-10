@@ -1,8 +1,8 @@
 import Project from './Project.js'
 import AppSetting from './AppSetting.js'
 
-const version = '1'
-const CIRCLE_SETTING_KEY = 'Circle_Emitter_Setting'
+const version = '2'
+const CIRCLE_SETTING_KEY = 'circle_emitter_setting'
 
 function initProjectList(setting) {
     return setting?.projectList.map((it) => new Project(it)) ?? []
@@ -22,7 +22,7 @@ export function saveStateToLocalStorage(state) {
     }))
 }
 
-export function getStateFromLocalStorage() {
+export function getStateFromStorage() {
     const settingString = localStorage.getItem(CIRCLE_SETTING_KEY)
     if (settingString) {
         const setting = JSON.parse(settingString)
@@ -31,10 +31,11 @@ export function getStateFromLocalStorage() {
 }
 
 export function initState(setting) {
-    setting = setting ? setting : getStateFromLocalStorage()
+    setting = setting ? setting : getStateFromStorage()
     return {
         appSetting: initAppSetting(setting),
         projectList: initProjectList(setting),
+        set: !!setting,
     }
 }
 

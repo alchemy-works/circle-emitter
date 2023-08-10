@@ -35,8 +35,8 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
                 type: 'warning',
                 value: 'Import setting',
                 className: 'button-import-setting',
-                events: async (ev) => {
-                    openFileAndReadAsText((err, text) => {
+                events: (ev) => {
+                    openFileAndReadAsText(async (err, text) => {
                         if (err) {
                             console.error(err)
                             LightTip.error(err.message)
@@ -58,16 +58,16 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
     const vm = createApp({
         template: `
           <form id="app-setting-form" class="ui-form" :class="ClassName" @submit.prevent="onSubmit">
-          <div class="form-row">
-            <label for="app-setting-host">Host<span class="red">*</span></label>
-            <input :value="appSetting.host" type="text" id="app-setting-host"
-                   class="ui-input" name="app-setting-host" required>
-          </div>
-          <div class="form-row">
-            <label for="app-setting-circle-token">Circle Token<span class="red">*</span></label>
-            <input :value="appSetting.circleToken" type="password" id="app-setting-circle-token"
-                   class="ui-input" name="app-setting-circle-token" required>
-          </div>
+            <div class="form-row">
+              <label for="app-setting-host">Host<span class="red">*</span></label>
+              <input :value="appSetting.host" type="text" id="app-setting-host"
+                     class="ui-input" name="app-setting-host" required>
+            </div>
+            <div class="form-row">
+              <label for="app-setting-circle-token">Circle Token<span class="red">*</span></label>
+              <input :value="appSetting.circleToken" type="password" id="app-setting-circle-token"
+                     class="ui-input" name="app-setting-circle-token" required>
+            </div>
           </form>
         `,
         setup() {

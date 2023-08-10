@@ -1,4 +1,4 @@
-import { css, reactive, watch, LightTip } from './modules.js'
+import { css, reactive, watch, onMounted } from './modules.js'
 import HeadLine from './components/HeadLine.js'
 import ProjectTable from './components/ProjectTable.js'
 import { initState, saveStateToLocalStorage } from './common/context.js'
@@ -22,14 +22,21 @@ const ClassName = css`
 export default {
     template: `
       <div :class="ClassName">
-      <HeadLine :state="state"/>
-      <ProjectTable class="project-table" :state="state"/>
+        <HeadLine :state="state"/>
+        <ProjectTable class="project-table" :state="state"/>
       </div>
     `,
     components: { HeadLine, ProjectTable },
     setup(props) {
-        const state = reactive({
-            ...initState(),
+        const state = reactive(initState())
+
+        // fallback to sample setting
+        onMounted(async () => {
+            if (!state.set) {
+                const response = await fetch('/samples/sample_setting.json')
+                const setting = await response.json()
+                Object.assign(state, initState(setting))
+            }
         })
 
         watch(() => state, (newState) => {
