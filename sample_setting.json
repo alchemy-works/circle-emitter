@@ -6,9 +6,9 @@
   },
   "projectList": [
     {
-      "name": "circleci-emitter",
-      "description": "CircleCI Emitter",
-      "projectSlug": "github/alchemy-works/circleci-emitter",
+      "name": "circle-emitter",
+      "description": "Circle Emitter",
+      "projectSlug": "github/alchemy-works/circle-emitter",
       "branch": "main",
       "parameters": {},
       "recentTriggered": []
