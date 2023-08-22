@@ -1,5 +1,6 @@
 import { createApp, css, Dialog, LightTip } from '../modules.js'
 import { openFileAndReadAsText } from '../common/file.js'
+import { getStateFromStorage } from '../common/context.js'
 
 const ClassName = css`
   min-width: 540px;
@@ -32,8 +33,8 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
         content: '<div class="modal-content-root"></div>',
         buttons: [
             {
-                type: 'warning',
-                value: 'Import setting',
+                type: 'normal',
+                value: 'Import',
                 className: 'button-import-setting',
                 events: (ev) => {
                     openFileAndReadAsText(async (err, text) => {
@@ -48,12 +49,29 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
                 }
             },
             {
+                type: 'normal',
+                value: 'Export',
+                className: 'button-export-setting',
+                events: async (ev) => {
+                    const setting = await getStateFromStorage()
+                    if (setting) {
+                        const handle = await showSaveFilePicker({
+                            suggestedName: 'setting.json',
+                        })
+                        const writable = await handle.createWritable();
+                        await writable.write(new Blob([JSON.stringify(setting)]))
+                        await writable.close()
+                    }
+                }
+            },
+            {
                 type: 'primary',
                 value: 'Save',
                 form: 'app-setting-form',
             }]
     })
     dialog.querySelector('.button-import-setting').style.float = 'left'
+    dialog.querySelector('.button-export-setting').style.float = 'left'
     //
     const vm = createApp({
         template: `
@@ -63,10 +81,10 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
               <input :value="appSetting.host" type="text" id="app-setting-host"
                      class="ui-input" name="app-setting-host" required>
             </div>
-            <div class="form-row">
+            <div v-show="!isUserscript()" class="form-row">
               <label for="app-setting-circle-token">Circle Token<span class="red">*</span></label>
               <input :value="appSetting.circleToken" type="password" id="app-setting-circle-token"
-                     class="ui-input" name="app-setting-circle-token" required>
+                     class="ui-input" name="app-setting-circle-token" :required="!isUserscript()">
             </div>
           </form>
         `,
@@ -79,10 +97,15 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
                 LightTip.success('App setting saved')
             }
 
+            function isUserscript() {
+                return window.__userscript__
+            }
+
             return {
                 ClassName,
                 appSetting,
                 onSubmit,
+                isUserscript,
             }
         },
     })

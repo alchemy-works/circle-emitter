@@ -1,5 +1,5 @@
 import { createApp, css, Dialog, LightTip } from '../modules.js'
-import triggerPipeline from '../apis/triggerPipeline.js'
+import { triggerPipeline } from '../apis/trigger_pipeline.js'
 
 const ClassName = css`
   min-width: 540px;
@@ -45,27 +45,27 @@ export function openProjectModal({ project, appSetting }) {
     const vm = createApp({
         template: `
           <form id="project-form" class="ui-form" :class="ClassName" @submit.prevent="onSubmit">
-          <div class="form-row">
-            <label for="project-name">Name<span class="red">*</span></label>
-            <input :value="project.name" type="text" id="project-name"
-                   class="ui-input" name="project-name" required>
-          </div>
-          <div class="form-row">
-            <label for="project-project-slug">Project slug<span class="red">*</span></label>
-            <input :value="project.projectSlug" type="text" id="project-project-slug"
-                   class="ui-input" name="project-project-slug" required>
-          </div>
-          <div class="form-row">
-            <label for="project-branch">Branch<span class="red">*</span></label>
-            <input :value="project.branch" type="text" id="project-branch"
-                   class="ui-input" name="project-branch" required>
-          </div>
-          <div class="form-row">
-            <label for="project-parameters">Parameters<span class="red">*</span></label>
-            <textarea :value="project.getParametersJsonString()" id="project-parameters"
-                      rows="4"
-                      class="ui-textarea" name="project-parameters" required></textarea>
-          </div>
+            <div class="form-row">
+              <label for="project-name">Name<span class="red">*</span></label>
+              <input :value="project.name" type="text" id="project-name"
+                     class="ui-input" name="project-name" required>
+            </div>
+            <div class="form-row">
+              <label for="project-project-slug">Project slug<span class="red">*</span></label>
+              <input :value="project.projectSlug" type="text" id="project-project-slug"
+                     class="ui-input" name="project-project-slug" required>
+            </div>
+            <div class="form-row">
+              <label for="project-branch">Branch<span class="red">*</span></label>
+              <input :value="project.branch" type="text" id="project-branch"
+                     class="ui-input" name="project-branch" required>
+            </div>
+            <div class="form-row">
+              <label for="project-parameters">Parameters<span class="red">*</span></label>
+              <textarea :value="project.getParametersJsonString()" id="project-parameters"
+                        rows="4"
+                        class="ui-textarea" name="project-parameters" required></textarea>
+            </div>
           </form>
         `,
         setup() {

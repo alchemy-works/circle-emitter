@@ -30,15 +30,6 @@ export default {
     setup(props) {
         const state = reactive(initState())
 
-        // fallback to sample setting
-        onMounted(async () => {
-            if (!state.set) {
-                const response = await fetch('/samples/sample_setting.json')
-                const setting = await response.json()
-                Object.assign(state, initState(setting))
-            }
-        })
-
         watch(() => state, (newState) => {
             saveStateToLocalStorage(newState)
         }, {

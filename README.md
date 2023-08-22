@@ -30,6 +30,11 @@ java -jar circle-emitter.jar
 # App will start at localhost:8001
 ```
 
+### Use userscript
+
+- See: https://github.com/alchemy-works/oily-monkey
+- Userscript: https://alchemy-works.github.io/circle-emitter/src/main/resources/static/userscript.js
+
 ---
 
 - Java 17 required
