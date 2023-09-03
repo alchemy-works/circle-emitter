@@ -51,6 +51,11 @@ export function openProjectModal({ project, appSetting }) {
                      class="ui-input" name="project-name" required>
             </div>
             <div class="form-row">
+              <label for="project-description">Description<span class="red">*</span></label>
+              <input :value="project.description" type="text" id="project-description"
+                     class="ui-input" name="project-description" required>
+            </div>
+            <div class="form-row">
               <label for="project-project-slug">Project slug<span class="red">*</span></label>
               <input :value="project.projectSlug" type="text" id="project-project-slug"
                      class="ui-input" name="project-project-slug" required>
@@ -77,6 +82,7 @@ export function openProjectModal({ project, appSetting }) {
                     getTriggerButtonClassList().add('loading')
                     const form = new FormData(ev.target)
                     project.name = form.get('project-name')
+                    project.description = form.get('project-description')
                     project.projectSlug = form.get('project-project-slug')
                     project.branch = form.get('project-branch')
                     project.setParametersJsonString(form.get('project-parameters').toString())
