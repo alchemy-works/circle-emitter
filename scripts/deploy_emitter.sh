@@ -7,5 +7,5 @@ docker run -d \
   -v "$(pwd):/app" \
   -p 8001:8001 \
   --name circle-emitter \
-  openjdk:20 \
+  openjdk:21 \
   "/app/scripts/start_emitter.sh"
