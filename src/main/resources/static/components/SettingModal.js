@@ -1,30 +1,30 @@
-import { createApp, css, Dialog, LightTip } from '../modules.js'
+import { createApp, css, Dialog, LightTip, showSaveFilePicker } from '../modules.js'
 import { openFileAndReadAsText } from '../common/file.js'
 import { getStateFromStorage } from '../common/context.js'
 
 const ClassName = css`
-  min-width: 540px;
+    min-width: 540px;
 
-  .form-row {
-    :not(:first-child) {
-      margin-top: .5rem;
+    .form-row {
+        :not(:first-child) {
+            margin-top: .5rem;
+        }
+
+        display: flex;
+        align-items: center;
+
+        label {
+            min-width: 90px;
+        }
+
+        input {
+            flex: 1;
+        }
     }
 
-    display: flex;
-    align-items: center;
-
-    label {
-      min-width: 90px;
+    .red {
+        color: #eb4646;
     }
-
-    input {
-      flex: 1;
-    }
-  }
-
-  .red {
-    color: #eb4646;
-  }
 `
 
 export function openAppSettingModal({ appSetting, importSetting, }) {
@@ -55,6 +55,7 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
                 events: async (ev) => {
                     const setting = await getStateFromStorage()
                     if (setting) {
+                        setting.projectList.forEach((it) => it.recentTriggered = [])
                         const handle = await showSaveFilePicker({
                             suggestedName: 'setting.json',
                         })
