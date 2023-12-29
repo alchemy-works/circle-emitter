@@ -9,7 +9,11 @@ await loadCss('https://unpkg.com/lu2@2023.6.26/theme/edge/css/common/animate.css
 await loadCss('https://unpkg.com/lu2@2023.6.26/theme/edge/css/common/ui.css')
 await loadCss(new URL('./global.css', import.meta.url).toString())
 
-const getGlobalModule = (name) => window[name] || {}
+export const AppData = {
+    userscript: false,
+}
+
+export const getGlobalModule = (name) => window[name] || {}
 
 export const { reactive, watch, onMounted, createApp } = getGlobalModule('Vue')
 export const { css, cx, injectGlobal } = getGlobalModule('emotion')

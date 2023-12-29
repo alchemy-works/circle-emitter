@@ -1,8 +1,8 @@
-import { createApp } from './modules.js'
+import { createApp, AppData } from './modules.js'
 import App from './App.js'
 
 async function main() {
-    window.__userscript__ = true
+    AppData.userscript = true
     const app = createApp(App)
     document.body.innerHTML = '<div id="app"></div>'
     app.mount('#app')

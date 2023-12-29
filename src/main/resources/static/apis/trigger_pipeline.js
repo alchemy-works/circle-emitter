@@ -1,3 +1,5 @@
+import { AppData } from '../modules.js'
+
 async function triggerPipelineViaProxy({ project, appSetting }) {
     const response = await fetch('/api/circle/trigger_pipeline', {
         method: 'POST',
@@ -52,7 +54,7 @@ async function triggerPipelineViaApi({ project, appSetting }) {
 }
 
 export async function triggerPipeline(options = {}) {
-    if (window.__userscript__) {
+    if (AppData.userscript) {
         return await triggerPipelineViaApi(options)
     } else {
         return await triggerPipelineViaProxy(options)
