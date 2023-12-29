@@ -7,7 +7,7 @@ await loadJs('https://unpkg.com/lu2@2023.6.26/theme/edge/js/common/all.js')
 
 await loadCss('https://unpkg.com/lu2@2023.6.26/theme/edge/css/common/animate.css')
 await loadCss('https://unpkg.com/lu2@2023.6.26/theme/edge/css/common/ui.css')
-// await loadCss('./global.css')
+await loadCss(new URL('./global.css', import.meta.url).toString())
 
 const getGlobalModule = (name) => window[name] || {}
 
