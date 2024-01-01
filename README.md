@@ -13,13 +13,13 @@ Easily trigger your workflows!
 ### Start
 
 ```sh
-./scripts/start_emitter.sh
+./bin/start_emitter.sh
 ```
 
 ### Start with Docker
 
 ```sh
-./scripts/deploy_emitter.sh
+./bin/deploy_emitter.sh
 # App will start at localhost:8001
 ```
 

@@ -1,4 +1,4 @@
-import { AppData } from '../modules.js'
+import { AppData } from '../deps.js'
 
 async function triggerPipelineViaProxy({ project, appSetting }) {
     const response = await fetch('/api/circle/trigger_pipeline', {

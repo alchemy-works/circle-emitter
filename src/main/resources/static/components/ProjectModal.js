@@ -1,47 +1,89 @@
-import { createApp, css, Dialog, LightTip } from '../modules.js'
+import { createApp, css, Dialog, LightTip } from '../deps.js'
 import { triggerPipeline } from '../apis/trigger_pipeline.js'
 
-const ClassName = css`
-  min-width: 540px;
-
-  .form-row {
-    :not(:first-child) {
-      margin-top: .5rem;
+const DialogClassName = css`
+    .button-delete, .button-copy {
+        float: left;
     }
-
-    display: flex;
-    align-items: center;
-
-    label {
-      min-width: 90px;
-    }
-
-    input {
-      flex: 1;
-    }
-
-    textarea {
-      flex: 1;
-      resize: vertical;
-    }
-  }
-
-  .red {
-    color: #eb4646;
-  }
 `
 
-export function openProjectModal({ project, appSetting }) {
+const ClassName = css`
+    min-width: 540px;
+
+    .form-row {
+        :not(:first-child) {
+            margin-top: .5rem;
+        }
+
+        display: flex;
+        align-items: center;
+
+        label {
+            min-width: 90px;
+        }
+
+        input {
+            flex: 1;
+        }
+
+        textarea {
+            flex: 1;
+            resize: vertical;
+        }
+    }
+
+    .red {
+        color: #eb4646;
+    }
+`
+
+export function openProjectModal({ project, appSetting, onDelete, onCopy }) {
     const dialog = new Dialog({
         title: project.name,
-        content: '<div class="modal-content-root"></div>',
+        content: `<div class="modal-content-root"></div>`,
         buttons: [{
+            type: 'error',
+            value: 'Delete',
+            className: 'button-delete',
+            events: (ev) => {
+                ev.preventDefault()
+                try {
+                    if (typeof onDelete === 'function') {
+                        onDelete()
+                        LightTip.success('Delete succeed')
+                    }
+                } catch (err) {
+                    LightTip.error(err.message || 'Delete failed')
+                } finally {
+                    dialog.remove()
+                }
+            }
+        }, {
+            type: 'normal',
+            value: 'Copy',
+            className: 'button-copy',
+            events: (ev) => {
+                ev.preventDefault()
+                try {
+                    if (typeof onCopy === 'function') {
+                        onCopy()
+                        LightTip.success('Copy succeed')
+                    }
+                } catch (err) {
+                    LightTip.error(err.message || 'Copy failed')
+                } finally {
+                    dialog.remove()
+                }
+            }
+        }, {
             type: 'primary',
             value: 'Trigger',
             form: 'project-form',
             className: 'trigger-button',
         }]
     })
+    dialog.classList.add(DialogClassName)
+
     const vm = createApp({
         template: `
           <form id="project-form" class="ui-form" :class="ClassName" @submit.prevent="onSubmit">
@@ -74,7 +116,6 @@ export function openProjectModal({ project, appSetting }) {
           </form>
         `,
         setup() {
-
 
             async function onSubmit(ev) {
                 const getTriggerButtonClassList = () => dialog.querySelector('.trigger-button').classList

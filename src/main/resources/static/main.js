@@ -1,4 +1,4 @@
-import { createApp } from './modules.js'
+import { createApp } from './deps.js'
 import App from './App.js'
 
 async function main() {

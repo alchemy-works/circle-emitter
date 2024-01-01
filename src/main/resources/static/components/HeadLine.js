@@ -1,4 +1,4 @@
-import { css, LightTip } from '../modules.js'
+import { css, LightTip } from '../deps.js'
 import Button from './Button.js'
 import { openAppSettingModal } from './SettingModal.js'
 import { initState } from '../common/context.js'

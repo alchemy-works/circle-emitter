@@ -1,4 +1,4 @@
-import { createApp, css, Dialog, LightTip, showSaveFilePicker } from '../modules.js'
+import { createApp, css, Dialog, LightTip, showSaveFilePicker } from '../deps.js'
 import { openFileAndReadAsText } from '../common/file.js'
 import { getStateFromStorage } from '../common/context.js'
 

@@ -1,4 +1,4 @@
-import { css, reactive, watch, onMounted } from './modules.js'
+import { css, reactive, watch, onMounted } from './deps.js'
 import HeadLine from './components/HeadLine.js'
 import ProjectTable from './components/ProjectTable.js'
 import { initState, saveStateToLocalStorage } from './common/context.js'

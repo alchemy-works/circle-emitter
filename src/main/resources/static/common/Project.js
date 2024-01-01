@@ -2,7 +2,7 @@ import { getTimeTag } from './time.js'
 
 export default class Project {
 
-    constructor({ name, description, projectSlug, parameters, branch, recentTriggered } = {}) {
+    constructor({ name, description, projectSlug, branch, parameters, recentTriggered } = {}) {
         this.name = name ?? ''
         this.description = description ?? ''
         this.projectSlug = projectSlug ?? ''

@@ -1,4 +1,4 @@
-import { reactive } from '../modules.js'
+import { reactive } from '../deps.js'
 
 export default {
     template: `
