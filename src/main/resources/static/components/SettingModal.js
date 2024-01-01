@@ -1,4 +1,4 @@
-import { createApp, css, Dialog, LightTip, showSaveFilePicker } from '../deps.js'
+import { AppData, createApp, css, Dialog, LightTip, showSaveFilePicker } from '../deps.js'
 import { openFileAndReadAsText } from '../common/file.js'
 import { getStateFromStorage } from '../common/context.js'
 
@@ -99,7 +99,7 @@ export function openAppSettingModal({ appSetting, importSetting, }) {
             }
 
             function isUserscript() {
-                return window.__userscript__
+                return AppData.userscript
             }
 
             return {
