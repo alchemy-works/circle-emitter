@@ -1,4 +1,4 @@
-import { css } from '../deps.js'
+import { computed, css } from '../deps.js'
 import Button from './Button.js'
 import { openProjectModal } from './ProjectModal.js'
 import Project from '../common/Project.js'
@@ -43,10 +43,10 @@ export default {
           </tr>
           </thead>
           <tbody>
-          <tr v-if="!state.projectList.length">
+          <tr v-if="!showProjectList.length">
             <td class="td-empty" colspan="3">Empty</td>
           </tr>
-          <tr v-else v-for="(it) of state.projectList" :key="it.id">
+          <tr v-else v-for="(it) of showProjectList" :key="it.id">
             <td>
               <div class="title">
                 <a :href="it.getPipelineUrl(state.appSetting.host)" target="_blank">{{ it.name }}</a>
@@ -83,6 +83,7 @@ export default {
                         throw new Error('Cannot delete the last Project')
                     }
                     props.state.projectList = props.state.projectList.filter((it) => it !== project)
+                    props.state.searchTagList = []
                 },
                 onCopy: () => {
                     props.state.projectList.push(new Project({
@@ -93,8 +94,24 @@ export default {
             })
         }
 
+        const showProjectList = computed(() => {
+            const searchTagList = props.state.searchTagList
+            if (!searchTagList.length) {
+                return props.state.projectList
+            }
+            const l = []
+            for (const p of props.state.projectList) {
+                const tagList = p.getTagList()
+                if (tagList.some((t) => searchTagList.includes(t))) {
+                    l.push(p)
+                }
+            }
+            return l
+        })
+
         return {
             ClassName,
+            showProjectList,
             onClickOpenProject,
         }
     },

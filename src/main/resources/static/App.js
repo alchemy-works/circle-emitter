@@ -2,6 +2,7 @@ import { css, reactive, watch, onMounted } from './deps.js'
 import HeadLine from './components/HeadLine.js'
 import ProjectTable from './components/ProjectTable.js'
 import { initState, saveStateToLocalStorage } from './common/context.js'
+import TagFilter from './components/TagFilter.js'
 
 const ClassName = css`
     max-width: 1000px;
@@ -23,10 +24,11 @@ export default {
     template: `
       <div :class="ClassName">
         <HeadLine :state="state"/>
+        <TagFilter :state="state"/>
         <ProjectTable class="project-table" :state="state"/>
       </div>
     `,
-    components: { HeadLine, ProjectTable },
+    components: { HeadLine, TagFilter, ProjectTable, },
     setup(props) {
         const state = reactive(initState())
 

@@ -4,13 +4,14 @@ export default class Project {
 
     static sequence = 1
 
-    constructor({ name, description, projectSlug, branch, parameters, recentTriggered } = {}) {
+    constructor({ name, description, projectSlug, branch, parameters, tags, recentTriggered } = {}) {
         this.id = Project.sequence++
         this.name = name ?? ''
         this.description = description ?? ''
         this.projectSlug = projectSlug ?? ''
         this.branch = branch ?? ''
         this.parameters = parameters ?? {}
+        this.tags = tags ?? ''
         this.recentTriggered = recentTriggered ?? []
     }
 
@@ -47,5 +48,16 @@ export default class Project {
 
     getPipelineUrl(host) {
         return `https://app.${host}/pipelines/${this.projectSlug}`
+    }
+
+    getTagList() {
+        if (!this.tags) {
+            return []
+        }
+        return this.tags.split(',')
+    }
+
+    setTags(s) {
+        this.tags = [...new Set(s.split(',').map((it) => it.trim()).filter((it) => !!it))].join(',')
     }
 }

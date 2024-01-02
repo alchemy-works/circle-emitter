@@ -15,7 +15,7 @@ export const AppData = {
 
 export const getGlobalModule = (name) => window[name] || {}
 
-export const { reactive, watch, onMounted, createApp } = getGlobalModule('Vue')
+export const { reactive, watch, onMounted, createApp, computed, ref, nextTick } = getGlobalModule('Vue')
 export const { css, cx, injectGlobal } = getGlobalModule('emotion')
 export const Dialog = getGlobalModule('Dialog')
 export const LightTip = getGlobalModule('LightTip')

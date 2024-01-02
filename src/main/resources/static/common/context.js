@@ -39,6 +39,7 @@ export function initState(setting) {
     return {
         appSetting: initAppSetting(setting),
         projectList: initProjectList(setting),
+        searchTagList: setting?.searchTagList || [],
     }
 }
 
