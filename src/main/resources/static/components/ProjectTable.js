@@ -46,7 +46,7 @@ export default {
           <tr v-if="!state.projectList.length">
             <td class="td-empty" colspan="3">Empty</td>
           </tr>
-          <tr v-else v-for="(it) of state.projectList" :key="it.name">
+          <tr v-else v-for="(it) of state.projectList" :key="it.id">
             <td>
               <div class="title">
                 <a :href="it.getPipelineUrl(state.appSetting.host)" target="_blank">{{ it.name }}</a>

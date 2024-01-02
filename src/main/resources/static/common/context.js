@@ -4,6 +4,8 @@ import AppSetting from './AppSetting.js'
 const version = '2'
 const CIRCLE_SETTING_KEY = 'circle_emitter_setting'
 
+const sampleAppSetting = await (await fetch(new URL('../samples/sample_setting.json', import.meta.url))).json()
+
 function initProjectList(setting) {
     return setting?.projectList.map((it) => new Project(it)) ?? []
 }
@@ -27,6 +29,8 @@ export function getStateFromStorage() {
     if (settingString) {
         const setting = JSON.parse(settingString)
         return setting.version === version ? setting : undefined
+    } else {
+        return sampleAppSetting
     }
 }
 

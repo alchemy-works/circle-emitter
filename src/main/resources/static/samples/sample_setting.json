@@ -12,14 +12,6 @@
       "branch": "main",
       "parameters": {},
       "recentTriggered": []
-    },
-    {
-      "name": "sanguo",
-      "description": "Sanguo",
-      "projectSlug": "github/cbdyzj/sanguo",
-      "branch": "main",
-      "parameters": {},
-      "recentTriggered": []
     }
   ]
 }
