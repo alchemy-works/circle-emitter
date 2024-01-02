@@ -32,8 +32,13 @@ java -jar circle-emitter.jar
 
 ### Use userscript
 
-- See: https://github.com/alchemy-works/oily-monkey
-- Userscript: https://alchemy-works.github.io/circle-emitter/src/main/resources/static/userscript.js
+See: https://github.com/alchemy-works/oily-monkey
+
+Userscript: 
+
+```
+https://alchemy-works.github.io/circle-emitter/src/main/resources/static/userscript.js
+```
 
 ---
 
