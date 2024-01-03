@@ -2,9 +2,12 @@ import { css, computed, watch, nextTick, ref } from '../deps.js'
 
 const ClassName = css`
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
 
-    .tag-span {
-        margin-right: 1rem;
+    .tag-span label {
+        margin-left: .125rem;
     }
 `
 
